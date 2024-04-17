@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import orjson
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -121,11 +121,21 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-        # 'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
-        # Any other renders
+    "DEFAULT_RENDERER_CLASSES": (
+        "drf_orjson_renderer.renderers.ORJSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
     ),
+    "DEFAULT_PARSER_CLASSES": ("drf_orjson_renderer.parsers.ORJSONParser",),
+    "ORJSON_RENDERER_OPTIONS": (
+        orjson.OPT_NON_STR_KEYS,
+        orjson.OPT_SERIALIZE_DATACLASS,
+        orjson.OPT_SERIALIZE_NUMPY,
+    ),
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+    #     # 'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+    #     # Any other renders
+    # ),
     # 'DEFAULT_PARSER_CLASSES': (
     #     'djangorestframework_camel_case.parser.CamelCaseFormParser',
     #     'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
