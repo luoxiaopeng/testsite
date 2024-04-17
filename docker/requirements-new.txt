@@ -3,4 +3,5 @@ django-dbbackup
 django-filter
 django-storages
 fastapi
+orjson
 mysqlclient
