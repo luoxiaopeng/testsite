@@ -1,0 +1,5 @@
+Django==3.2.18
+django-dbbackup
+django-filter
+django-storages
+mysqlclient
