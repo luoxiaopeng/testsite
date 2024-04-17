@@ -1,0 +1,25 @@
+version: "3.1" # 3.8
+
+services:
+  cms:
+    container_name: testsite
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        - PIP=
+        - SOURCES=
+    # command的执行目录是docker-compose.yml所在文件夹
+    working_dir: /app
+    command: gunicorn testsite.asgi:application -c docker/gunicorn.py
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - vscode:/root/.vscode-server/extensions
+      - vscode-insiders:/root/.vscode-server-insiders/extensions
+    ports:
+      - "955:955"
+
+volumes:
+  vscode:
+  vscode-insiders:
