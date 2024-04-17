@@ -11,7 +11,7 @@ services:
         - SOURCES=
     # command的执行目录是docker-compose.yml所在文件夹
     working_dir: /app
-    command: gunicorn testsite.asgi:application -c docker/gunicorn.py
+    command: gunicorn testsite.wsgi:application -c docker/gunicorn.py
     restart: unless-stopped
     volumes:
       - .:/app
