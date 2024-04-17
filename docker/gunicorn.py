@@ -9,13 +9,8 @@ def worker_exit(server, worker):
     multiprocess.mark_process_dead(worker.pid)
 
 
-if environ.get('NAME', 'mobile') == 'mobile':
-    bind = f'0.0.0.0:930'
-    workers = cpu_count() * 2
-else:
-    bind = f'0.0.0.0:920'
-    workers = 1
-
+bind = f'0.0.0.0:956'
+workers = cpu_count() * 2
 worker_class = 'uvicorn.workers.UvicornWorker'
 threads = 0
 worker_connections = 0

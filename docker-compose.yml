@@ -18,7 +18,7 @@ services:
       - vscode:/root/.vscode-server/extensions
       - vscode-insiders:/root/.vscode-server-insiders/extensions
     ports:
-      - "955:955"
+      - "956:956"
 
 volumes:
   vscode:
