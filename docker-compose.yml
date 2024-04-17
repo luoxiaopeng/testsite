@@ -12,7 +12,7 @@ services:
     # command的执行目录是docker-compose.yml所在文件夹
     working_dir: /app
     # command: gunicorn testsite.wsgi:application -c docker/gunicorn.py
-    command: uvicorn main:app --reload
+    command: uvicorn main:app --port 956
     restart: unless-stopped
     volumes:
       - .:/app
