@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+import asyncio
 from polls.views import TestApiView
 from ninja import NinjaAPI
 
@@ -23,7 +23,7 @@ api = NinjaAPI()
 
 
 @api.get("/test")
-def add(request):
+async def test(request):
     return {"operation": "ok"}
 
 
