@@ -1,3 +1,4 @@
+adrf
 Django
 django-ninja
 django-dbbackup
