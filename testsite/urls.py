@@ -17,8 +17,18 @@ from django.contrib import admin
 from django.urls import path
 
 from polls.views import TestApiView
+from ninja import NinjaAPI
+
+api = NinjaAPI()
+
+
+@api.get("/test")
+def add(request):
+    return {"operation": "ok"}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("test/", TestApiView.as_view(), name="safsa"),
+    path("api/", api.urls, name="safsa1"),  # type: ignore
 ]
