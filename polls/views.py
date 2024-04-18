@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from adrf.views import APIView, Response
+from rest_framework.response import Response
+from rest_framework import permissions
+from adrf.views import APIView
 
 
 class TestApiView(APIView):
