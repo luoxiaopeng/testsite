@@ -8,7 +8,7 @@ cffi
 # chardet
 crcmod
 Deprecated
-Django==3.2.18
+Django
 django-admin-multiple-choice-list-filter
 django-cors-headers
 django-prometheus

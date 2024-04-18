@@ -1,4 +1,5 @@
-Django==3.2.18
+Django
+django-ninja
 django-dbbackup
 django-filter
 django-storages
